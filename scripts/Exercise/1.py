@@ -1,4 +1,31 @@
-﻿
+﻿''' comment
+
+# --------------------------------------------------------------------------------------------------
+# 掃描所有 styled token 的方法
+# https://community.notepad-plus-plus.org/topic/21973/regular-expression-size-limited-2048-chars-how-to-make-it-longer
+
+    >>> editor.indicatorEnd(24,0) # 從位置 0 開始查塗了第 24 號顏色出現的
+                                  # 位置，結果回 0 表示沒有。
+    0
+    >>> editor.indicatorEnd(25,0) # 從位置 0 開始查塗了第 25 號顏色出現的
+                                  # 位置，結果回 1014 這是起點位置。
+    1014
+    >>> editor.indicatorEnd(25,1) # 用比起點 1014 小的 position 值去查結果都是 1014
+    1014
+    >>> editor.indicatorEnd(25,1014) # 用起點 1014 去查結果是終點 1023 
+    1023
+    >>> editor.indicatorEnd(25,1023) # 用終點 1023 去查結果是下一個起點 1116
+    1116
+    >>> editor.indicatorEnd(25,1024) # 用下一個起點 1116 之前的 position 值查還是 1116
+    1116
+    >>> editor.indicatorEnd(25,1116) # 用起點 1116 去查結果是終點 1122
+    1122
+    >>> editor.indicatorEnd(25,1122) # 用終點 1122 去查結果是 buffer 終點
+    12500
+    >>> editor.indicatorEnd(25,12500)  # 用 buffer 終點去查結果還是 buffer 終點，表示已經沒有了。
+    12500    
+
+
 # --------------------------------------------------------------------------------------------------
 # Editor Objec
 # http://npppythonscript.sourceforge.net/docs/latest/scintilla.html 
@@ -11,7 +38,6 @@ editor.addText("added text") # 轉成 python
 text = editor.getText() # 轉成 python. 讀整個 buffer 
 
 
-''' comment
 
 # --------------------------------------------------------------------------------------------------
 # Notepad Object 
