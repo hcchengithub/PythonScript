@@ -1,4 +1,94 @@
-﻿# --------------------------------------------------------------------------------------------------
+﻿
+# --------------------------------------------------------------------------------------------------
+# Editor Objec
+# http://npppythonscript.sourceforge.net/docs/latest/scintilla.html 
+# 09:52 2021/10/27
+
+# SCI_ADDTEXT(int length, const char *text)  C language 的 argument format 
+editor.addText("added text") # 轉成 python  
+
+# SCI_GETTEXT(int length, char *text)  C language 的 argument format 
+text = editor.getText() # 轉成 python. 讀整個 buffer 
+
+
+''' comment
+
+# --------------------------------------------------------------------------------------------------
+# Notepad Object 
+# http://npppythonscript.sourceforge.net/docs/latest/notepad.html
+# 09:52 2021/10/27
+
+
+
+# 最底下 status bar 的文字可以亂改，切出切回會被覆寫掉。
+
+notepad.setStatusBar(STATUSBARSECTION.UNICODETYPE, "lalalalala ;-)")
+
+#     STATUSBARSECTION.CURPOS
+#     STATUSBARSECTION.DOCSIZE
+#     STATUSBARSECTION.DOCTYPE
+#     STATUSBARSECTION.EOFFORMAT
+#     STATUSBARSECTION.TYPINGMODE
+#     STATUSBARSECTION.UNICODETYPE
+
+# --------------------------------------------------------------------------------------------------
+# http://npppythonscript.sourceforge.net/docs/latest/notepad.html
+# 09:43 2021/10/27
+
+
+# 這個應該很有用。我寫筆記需要用 .py 以方便內縮之收合-展開。有了這個 function 就可以把 .txt 暫時搞成 .py 的效果了。
+notepad.setLangType(LANGTYPE.PYTHON)  # 成功！真的把 active buffer 設定為 python 模式。
+# notepad.setCurrentLang(LANGTYPE.PYTHON) # 這個 function 不存在
+
+# --------------------------------------------------------------------------------------------------
+# http://npppythonscript.sourceforge.net/docs/latest/notepad.html
+# 16:35 2021/10/26
+
+notepad.menuCommand(MENUCOMMAND.EDIT_DUP_LINE) # 執行 built-in commands
+notepad.runMenuCommand("TextFX Tools", "T:Word Count") # 執行 plugin commands 
+notepad.runMenuCommand("TextFX Tools", "T:Word Count") # 執行 plugin commands 
+notepad.runMenuCommand("color picker","color picker") # 不分大小寫
+notepad.runPluginCommand('Python Script', 'Hubble2 RegEx') # 執行 Python Script 
+notepad.runPluginCommand('Python Script', 'GotoLineCol') # 'GotoLineCol' 藏很深也被找出來執行！
+
+
+# [X] index 啥意思？ Tab 由左到右的順序
+# [X] view  啥意思？ document window 由上到下由左到右的順序
+Notepad.getCurrentDocIndex(view)
+Gets the current active index for the given view (0 or 1)
+
+    >>> notepad.getCurrentDocIndex(0)
+    5
+    >>> notepad.getCurrentDocIndex(1)
+    4294967295L <----------------------- view 1 根本不存在時傳回怪值。
+
+
+# --------------------------------------------------------------------------------------------------
+# http://npppythonscript.sourceforge.net/docs/latest/notepad.html
+# 16:35 2021/10/26
+
+# 切到某個 buffer (tab)
+bufferID = notepad.getCurrentBufferID()
+print bufferID
+# 切走到別的 buffer (tab) 然後在 console 執行： notepad.activateBufferID(bufferID) 切回來。
+
+
+# --------------------------------------------------------------------------------------------------
+
+# 取得 buffers 裡的 files  --> tuples of (filename, bufferID, index, view)
+notepad.getFiles()
+    # [('c:\\Users\\8304018\\Downloads\\1.log', 49611952, 0, 0), 
+    # ('C:\\Users\\8304018\\AppData\\Roaming\\Notepad++\\plugins\\Config\\PythonScript\\scripts\\1.py', 101963704, 1, 0), 
+    # ('new 2', 49665104, 2, 0), 
+    # ('new 3', 49666040, 3, 0), 
+    # ('new 4', 49666352, 4, 0), 
+    # ('C:\\Users\\8304018\\AppData\\Local\\Packages\\Microsoft.Office.OneNote_8wekyb3d8bbwe\\LocalState\\EmbeddedFileFolder\\2\\Objects of Notepad++ PythonScript.txt', 49664792, 5, 0)]
+
+# 切換過去到某個 file 
+notepad.activateFile('new 4')
+notepad.activateFile('C:\\Users\\8304018\\AppData\\Local\\Packages\\Microsoft.Office.OneNote_8wekyb3d8bbwe\\LocalState\\EmbeddedFileFolder\\2\\Objects of Notepad++ PythonScript.txt')
+
+# --------------------------------------------------------------------------------------------------
 # http://npppythonscript.sourceforge.net/docs/latest/pythonprimer.html
 # 16:32 2021/10/26
 
@@ -10,7 +100,6 @@ if x == 3:
 console.write("this line is run always")
 
 
-''' comment
 # --------------------------------------------------------------------------------------------------
 # http://npppythonscript.sourceforge.net/docs/latest/intro.html
 # 16:18 2021/10/26
@@ -51,6 +140,8 @@ notepad.callback(addSaveStamp, [NOTIFICATION.FILEBEFORESAVE])
 這表示先前 registered 的 callback function 一直都還在 memory 裡。Restart Notepadd++
 就好了，果然！
 
+把所有 callback 都清掉：
+    notepad.clearCallbacks()
 
 # --------------------------------------------------------------------------------------------------
 16:12 2021/10/26 
