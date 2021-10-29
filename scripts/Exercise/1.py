@@ -65,6 +65,22 @@ notepad.setStatusBar(STATUSBARSECTION.UNICODETYPE, "lalalalala ;-)")
 # 這個應該很有用。我寫筆記需要用 .py 以方便內縮之收合-展開。有了這個 function 就可以把 .txt 暫時搞成 .py 的效果了。
 notepad.setLangType(LANGTYPE.PYTHON)  # 成功！真的把 active buffer 設定為 python 模式。
 # notepad.setCurrentLang(LANGTYPE.PYTHON) # 這個 function 不存在
+>>> dir(LANGTYPE)
+    ['ADA', 'ASM', 'ASN1', 'ASP', 'AU3', 'AVS', 'BAANC', 'BASH', 'BATCH', 'BLITZBASIC', 'C', 'CAML', 'CMAKE', 
+    'COBOL', 'COFFEESCRIPT', 'CPP', 'CS', 'CSOUND', 'CSS', 'D', 'DIFF', 'ERLANG', 'ESCRIPT', 'FLASH', 'FORTH', 
+    'FORTRAN', 'FORTRAN_77', 'FREEBASIC', 'GUI4CLI', 'HASKELL', 'HTML', 'IHEX', 'INI', 'INNO', 'JAVA', 'JAVASCRIPT', 
+    'JS', 'JSON', 'JSP', 'KIX', 'LATEX', 'LISP', 'LUA', 'MAKEFILE', 'MATLAB', 'MMIXAL', 'NIMROD', 'NNCRONTAB', 
+    'NSIS', 'OBJC', 'OSCRIPT', 'PASCAL', 'PERL', 'PHP', 'POWERSHELL', 'PROPS', 'PS', 'PUREBASIC', 'PYTHON', 'R', 
+    'RC', 'REBOL', 'REGISTRY', 'RUBY', 'RUST', 'SCHEME', 'SEARCHRESULT', 'SMALLTALK', 'SPICE', 'SQL', 'SREC', 'SWIFT', 
+    'TCL', 'TEHEX', 'TEX', 'TXT', 'TXT2TAGS', 'USER', 'VB', 'VERILOG', 'VHDL', 'VISUALPROLOG', 'XML', 'YAML', '__abs__', 
+    '__add__', '__and__', '__class__', '__cmp__', '__coerce__', '__delattr__', '__div__', '__divmod__', '__doc__', 
+    '__float__', '__floordiv__', '__format__', '__getattribute__', '__getnewargs__', '__hash__', '__hex__', '__index__', 
+    '__init__', '__int__', '__invert__', '__long__', '__lshift__', '__mod__', '__module__', '__mul__', '__neg__', '__new__', 
+    '__nonzero__', '__oct__', '__or__', '__pos__', '__pow__', '__radd__', '__rand__', '__rdiv__', '__rdivmod__', '__reduce__', 
+    '__reduce_ex__', '__repr__', '__rfloordiv__', '__rlshift__', '__rmod__', '__rmul__', '__ror__', '__rpow__', 
+    '__rrshift__', '__rshift__', '__rsub__', '__rtruediv__', '__rxor__', '__setattr__', '__sizeof__', '__slots__', 
+    '__str__', '__sub__', '__subclasshook__', '__truediv__', '__trunc__', '__xor__', 'bit_length', 'conjugate', 
+    'denominator', 'imag', 'name', 'names', 'numerator', 'real', 'values']
 
 # --------------------------------------------------------------------------------------------------
 # http://npppythonscript.sourceforge.net/docs/latest/notepad.html
