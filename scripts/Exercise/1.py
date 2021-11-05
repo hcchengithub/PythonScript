@@ -1,4 +1,19 @@
-﻿''' comment
+﻿# 
+# f = open(sys.path[3] + "/synonym.txt")
+# 
+# while f.readline()
+# 
+# exec("print 'aaa'")
+# aaa
+# >>> eval("111 + 234")
+# 345
+
+with open(sys.path[3] + "/synonym.txt") as f:
+    for line in f:
+        exec(line)
+
+
+''' comment
 
 # --------------------------------------------------------------------------------------------------
 # 掃描所有 styled token 的方法
